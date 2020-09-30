@@ -1,0 +1,8 @@
+
+{
+  "watch": ["src"],
+  "ext": "json,ts",
+  "ignore": ["src/**/*.test.ts"],
+  "delay": "80ms",
+  "exec": "npm run compile && npm run start:dev"
+}
