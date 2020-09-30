@@ -31,6 +31,10 @@ describe('helper tests', () => {
       expect(convert).toHaveProperty('to')
       expect(typeof convert.to).toBe('function')
     })
+
+    it('should treat default unit as ms', () => {
+      expect(timeValue(1000).to('sec')).toBe(1)
+    })
   })
 
   describe('sleep tests', () => {

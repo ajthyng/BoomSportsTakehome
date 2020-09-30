@@ -4,7 +4,9 @@
 			"path": "."
 		}
 	],
-	"settings": {},
+	"settings": {
+		"json.maxItemsComputed": 15000
+	},
 	"launch": {
 		"version": "0.2.0",
 		"configurations": [

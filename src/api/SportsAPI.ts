@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 import { NFLTeam } from '../types/nfl-team.type'
 import { SportsResponse } from '../types/sports-response.type'
+import { timeValue } from '../utils/Helpers'
 import { InMemoryCache } from '../utils/InMemoryCache'
 import { Logger } from '../utils/Logger'
 
@@ -10,12 +11,13 @@ export class SportsAPI {
   private readonly cache: InMemoryCache
   private readonly teamsCacheKey = 'football-teams'
 
-  constructor (baseURL: string, logger?: Logger, cache?: InMemoryCache) {
+  constructor (baseURL: string) {
     this.api = axios.create({
       baseURL
     })
-    this.logger = logger ?? new Logger()
-    this.cache = cache ?? new InMemoryCache()
+    this.logger = new Logger()
+    this.cache = new InMemoryCache()
+    this.getTeams = this.getTeams.bind(this)
   }
 
   async getTeams () {
@@ -39,11 +41,16 @@ export class SportsAPI {
         return acc
       }, [])
 
-      this.cache.setValue(this.teamsCacheKey, nflTeams)
+      this.cache.setValue(this.teamsCacheKey, nflTeams, timeValue(24, 'hours').to('ms'))
       return nflTeams
     } catch (err) {
-      this.logger.log(err)
+      this.logger.log(err.message)
+      return []
     }
+  }
+
+  async getPlayers (teamIDs: string[]) {
+
   }
 }
 
