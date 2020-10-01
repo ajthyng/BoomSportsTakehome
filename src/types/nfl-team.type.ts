@@ -1,5 +1,6 @@
 export interface NFLTeam {
-  id: string
-  uid: string
-  name: string
+  id: string;
+  name: string;
+  displayName: string;
+  color: string;
 }
