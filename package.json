@@ -32,6 +32,8 @@
   "dependencies": {
     "axios": "^0.20.0",
     "fastify": "^3.5.0",
-    "p-map": "^4.0.0"
+    "handlebars": "^4.7.6",
+    "p-map": "^4.0.0",
+    "point-of-view": "^4.6.0"
   }
 }

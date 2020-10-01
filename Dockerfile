@@ -1,6 +1,6 @@
 FROM node:alpine as build
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
 
 COPY package.json ./
 
@@ -17,6 +17,7 @@ WORKDIR /usr/app
 
 COPY --from=build package.json ./
 COPY --from=build dist ./dist
+COPY ./templates ./
 
 RUN npm install --production
 

@@ -31,14 +31,14 @@ export class SportsAPI {
         return cachedResponse
       }
 
-      const response = await espnAPI.get<SportsResponse<NFLTeam>>('/teams')
+      const response = await espnAPI.get<SportsResponse<{ team: NFLTeam}>>('/teams')
       const sports = response.data.sports
 
       const nflTeams = sports.reduce<NFLTeam[]>((acc, cur) => {
         if (cur.leagues && cur.leagues.length > 0) {
           const nfl = cur.leagues.find(league => league.slug === 'nfl')
           if (nfl) {
-            acc.push(...nfl.teams)
+            acc.push(...nfl.teams.map(entry => entry.team))
           }
         }
         return acc
