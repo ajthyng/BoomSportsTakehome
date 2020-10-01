@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     ports:
+      - 127.0.0.1:80:3000
       - 127.0.0.1:9229:9229
     volumes:
       - ./src:/usr/src/app/src
