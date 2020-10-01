@@ -1,5 +1,17 @@
-<ul>
-  {{#each teams}}
-    <li>{{name}}</li>
-  {{/each}}
-</ul>
+<!Doctype html>
+<html>
+<head>
+    <title>Boom Sports Takehome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{#each css}}
+        <link rel="stylesheet" href="/css/{{this}}">
+    {{/each}}
+</head>
+<body>
+  <ul>
+    {{#each teams}}
+      <li>{{name}}</li>
+    {{/each}}
+  </ul>
+</body>
+</html>

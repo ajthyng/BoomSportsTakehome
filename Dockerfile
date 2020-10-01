@@ -18,6 +18,7 @@ WORKDIR /usr/app
 COPY --from=build package.json ./
 COPY --from=build dist ./dist
 COPY ./templates ./
+COPY ./public ./
 
 RUN npm install --production
 

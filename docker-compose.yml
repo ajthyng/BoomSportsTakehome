@@ -11,3 +11,4 @@ services:
       - ./src:/usr/src/app/src
       - ./dist:/usr/src/app/dist
       - ./templates:/usr/src/app/templates
+      - ./public:/usr/src/app/public
