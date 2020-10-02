@@ -23,7 +23,8 @@ const _aggregateColleges = (athletes: Athlete[]) => {
   }, {})
   return Object.values(colleges).sort((a, b) => {
     return b.athletes.length - a.athletes.length
-  })
+  }).map(item => ({ college: { name: item.college.name }, count: item.athletes.length }))
 }
 
-export const aggregateColleges = memoize(_aggregateColleges, new InMemoryCache())
+const cache = new InMemoryCache()
+export const aggregateColleges = memoize(_aggregateColleges, cache)

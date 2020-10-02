@@ -23,7 +23,7 @@ app.get('/', async (request, reply) => {
   const teams = await nflAPI.getTeams()
   const athletes = await nflAPI.getAthletes(teams.map(team => team.id))
   const colleges = await aggregateColleges(athletes)
-  return reply.view('/templates/index.handlebars', { colleges, css: ['index.css'] })
+  return reply.view('/templates/index.handlebars', { colleges: colleges.slice(0, 5), css: ['index.css'] })
 })
 
 const bootstrap = async () => {

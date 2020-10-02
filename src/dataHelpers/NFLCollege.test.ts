@@ -33,7 +33,7 @@ describe('NFLCollege tests', () => {
     const colleges = await aggregateColleges(athletes)
     const areCollegesSorted = colleges.every((college, index, arr) => {
       if (index === 0) return true
-      return college.athletes.length <= arr[index - 1].athletes.length
+      return college.count <= arr[index - 1].count
     })
 
     expect(areCollegesSorted).toBeTruthy()
