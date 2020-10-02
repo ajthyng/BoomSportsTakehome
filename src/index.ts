@@ -3,6 +3,7 @@ import handlebars from 'handlebars'
 import path from 'path'
 import pointOfView from 'point-of-view'
 import { SportsAPI } from './api/SportsAPI'
+import { aggregateColleges } from './dataHelpers/NFLCollege'
 
 const app = fastify({ logger: true })
 
@@ -20,7 +21,9 @@ app.register(require('fastify-static'), {
 
 app.get('/', async (request, reply) => {
   const teams = await nflAPI.getTeams()
-  return reply.view('/templates/index.handlebars', { teams, css: ['index.css'] })
+  const athletes = await nflAPI.getAthletes(teams.map(team => team.id))
+  const colleges = await aggregateColleges(athletes)
+  return reply.view('/templates/index.handlebars', { colleges, css: ['index.css'] })
 })
 
 const bootstrap = async () => {

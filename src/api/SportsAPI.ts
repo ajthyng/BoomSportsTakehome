@@ -71,7 +71,7 @@ export class SportsAPI {
       }
     }
 
-    const athletes = await pMap(teamIDs, getRoster, { concurrency: 2 })
+    const athletes = await pMap(teamIDs, getRoster, { concurrency: 13 })
 
     return athletes.flat()
   }

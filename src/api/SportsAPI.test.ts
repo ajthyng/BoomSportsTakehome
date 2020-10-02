@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { mocked } from 'ts-jest/utils'
-import mockTeams from './mockData/mock-teams-data.json'
-import mockRosters from './mockData/mock-athlete-data.json'
+import mockTeams from '../mockData/mock-teams-data.json'
+import mockRosters from '../mockData/mock-athlete-data.json'
 import { Logger } from '../utils/Logger'
 import { SportsAPI } from './SportsAPI'
 

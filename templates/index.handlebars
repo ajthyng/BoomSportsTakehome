@@ -9,8 +9,8 @@
 </head>
 <body>
   <ul>
-    {{#each teams}}
-      <li>{{name}}</li>
+    {{#each colleges}}
+      <li>{{this.college.name}} - {{this.athletes.length}}</li>
     {{/each}}
   </ul>
 </body>

@@ -17,7 +17,6 @@ ul > li {
   box-shadow: 2px 2px 3px #30303030;
   text-align: center;
   margin-bottom: 8px;
-  cursor: pointer;
 }
 
 ul > li:hover {
