@@ -16,10 +16,12 @@ export class InMemoryCache {
     return this._cache[key] ?? null
   }
 
-  async setValue (key: string, value: any, ttl = 500) {
-    const setTime = new Date()
+  async setValue (key: string, value: any, ttl?: number) {
     this._cache[key] = value
-    this._ttlCache[key] = { setTime, ttl }
+    if (ttl !== undefined && ttl !== null) {
+      const setTime = new Date()
+      this._ttlCache[key] = { setTime, ttl }
+    }
   }
 
   async expire (key: string) {

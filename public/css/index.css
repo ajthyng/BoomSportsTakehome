@@ -14,14 +14,14 @@ ul > li {
   padding: 16px 12px; 
   background-color: white;
   color: #363534;
-  box-shadow: 1px 1px 4px #30303030;
+  box-shadow: 2px 2px 3px #30303030;
   text-align: center;
   margin-bottom: 8px;
   cursor: pointer;
 }
 
 ul > li:hover {
-  background-color: #EDEDED;
+  background-color: #F0F0F0;
 }
 
 ul li:last-child {
